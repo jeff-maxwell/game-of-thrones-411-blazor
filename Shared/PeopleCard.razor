@@ -1,0 +1,17 @@
+@using game_of_thrones_411_blazor.Models
+
+<div class="card" style="width: 250px">
+    <img class="card-img-top" style="max-height:200px" src="@Person.image" alt="character image">
+    <div class="card-body">
+        <h5 class="card-title profile-text">@Person.name</h5>
+        <p class="card-text profile-text">@Person.house</p>
+    </div>
+    <div class="card-footer">
+        <NavLink class="btn btn-primary" href="@($"/person/{Person.slug}")">Details</NavLink>
+    </div>
+</div>
+
+@functions {
+    [Parameter]
+    People Person { get; set; }
+}
