@@ -1,0 +1,24 @@
+@page "/person/{Slug}"
+@using game_of_thrones_411_blazor.Service
+@using game_of_thrones_411_blazor.Models
+@inject GOTService PeopleService
+
+<TopMenu/>
+
+@if (Slug == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    @Slug
+}
+
+@functions {
+    [Parameter]
+    public string Slug { get; set; }
+
+    protected override async Task OnInitAsync()
+    {
+    }
+}

@@ -4,15 +4,19 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using game_of_thrones_411_blazor.Models;
 using Microsoft.AspNetCore.Components;
+using System.Collections.Generic;
 
 namespace game_of_thrones_411_blazor.Service
 {
     public class GOTService
     {
-        public async Task<People[]> GetPeopleAsync()
+        private string _baseURL = "https://api.got.show/api/show/";
+        public async Task<List<People>> GetPeopleAsync()
         {
+            string url = $"{_baseURL}characters";
+
             HttpClient client = new HttpClient();
-            return await client.GetJsonAsync<People[]>("https://api.got.show/api/show/characters");
+            return await client.GetJsonAsync<List<People>>(url);
         }
     }
 }
