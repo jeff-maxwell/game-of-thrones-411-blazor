@@ -11,14 +11,25 @@
 }
 else
 {
-    @Slug
+    @Slug<br/>
+    @if (person != null)
+    {
+        @person.name<br/>
+        @person.actor<br/>
+        @person.house<br/>
+        @person.image<br/>
+        @person.titles<br/>
+    }
 }
 
 @functions {
     [Parameter]
     public string Slug { get; set; }
 
+    People person;
+
     protected override async Task OnInitAsync()
     {
+        person = await PeopleService.GetPersonAsync(Slug);
     }
 }

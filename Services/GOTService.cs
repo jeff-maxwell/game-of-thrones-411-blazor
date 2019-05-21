@@ -18,5 +18,13 @@ namespace game_of_thrones_411_blazor.Service
             HttpClient client = new HttpClient();
             return await client.GetJsonAsync<List<People>>(url);
         }
+
+        public async Task<People> GetPersonAsync(string slug)
+        {
+            string url = $"{_baseURL}characters/bySlug/{slug}";
+
+            HttpClient client = new HttpClient();
+            return await client.GetJsonAsync<People>(url);
+        }
     }
 }
