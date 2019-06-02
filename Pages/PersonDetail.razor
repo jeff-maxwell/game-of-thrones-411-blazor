@@ -11,14 +11,28 @@
 }
 else
 {
-    @Slug<br/>
     @if (person != null)
     {
-        @person.name<br/>
-        @person.actor<br/>
-        @person.house<br/>
-        @person.image<br/>
-        @person.titles<br/>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="@person.image" />
+                </div>
+                <div class="col-md-8">
+                    <h1>@person.name</h1>
+                    <br />
+                    <h3>@person.actor</h3>
+                    <br />
+                    <h5>@person.house</h5>
+                    <br />
+                    <h6>Titles:</h6>
+                    @foreach (var title in @person.titles)
+                    {
+                        @title<br />
+                    }
+                </div>
+            </div>
+        </div>
     }
 }
 
